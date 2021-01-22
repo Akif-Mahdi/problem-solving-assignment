@@ -1,62 +1,50 @@
+// https://github.com/Akif-Mahdi/problem-solving-assignment
+
+//problem1
 function kilometerToMeter(inputKilometer){
     if(inputKilometer<0){
-        // console.log();
-        return "Sorry! Invalid input. Please give an acceptable distance";
+        return "Sorry! Invalid input. Please give an acceptable length.";
     }
     var outputMeter = inputKilometer*1000;
     return outputMeter;
 }
 
-
+//problem2
 function budgetCalculator(numberOfWatches,numberOfPhones,numberOfLaptops){
-    // if(numberOfWatches<0 || numberOfPhones<0 || numberOfLaptops<0){
-    //     return "Sorry! Invalid input. Please give an acceptable distance";
-    // }
     if(numberOfWatches>0 || numberOfPhones>0 || numberOfLaptops>0){
         var watchCost=50*numberOfWatches;
         var phoneCost=100*numberOfPhones;
         var laptopCost=500*numberOfLaptops;
-        var totalCost=watchCost+phoneCost+laptopCost;
-        return totalCost;
+        var totalBudget=watchCost+phoneCost+laptopCost;
+        return totalBudget;
     }
-    return "Sorry! Invalid input. Please give an acceptable distance";
+    return "Sorry! Invalid input. Please give acceptable numbers.";
 }
 
-console.log(kilometerToMeter("-45"));
-console.log(budgetCalculator(45,45,45));
-
+//problem3
 function hotelCost(daysStayed){
+    if(daysStayed<0)
+        return "Sorry! Invalid input. Please give acceptable number of days.";
     var firstTenDays=0,secondTenDays=0,lastRemainingDays=0;
-    if(daysStayed>20){
+    if(daysStayed>20){  
         firstTenDays=10*100;
-        secondTenDays=10*80;
-        lastRemainingDays=(daysStayed-20)*50;
+        secondTenDays=10*80;   
+        lastRemainingDays=(daysStayed-20)*50;      //cost would be firstTenDays(full) + secondTenDays(full) + lastRemainingDays
     }
     else if(daysStayed>10 && daysStayed<=20){
-        firstTenDays=10*100;
-        secondTenDays=(daysStayed-10)*80;
+        firstTenDays=10*100;     
+        secondTenDays=(daysStayed-10)*80;          //cost would be firstTenDays(full) + secondTenDays(parital) 
     }
     else if (daysStayed<=10){
-        firstTenDays=daysStayed*100;
+        firstTenDays=daysStayed*100; 
     }
-    return firstTenDays+secondTenDays+lastRemainingDays;
-
-    // if(daysStayed>10)
-    //     var firstTenDays(100) = 10*100;
-    // else if(daysStayed<10)
-    //     var firstTenDays=daysStayed*100;
-    // else if (daysStayed>20)
-    //     var secondTenDays(80)=10*80;
-    // else if(daysStayed<20)
-    //     var secondTenDays=(daysStayed%10)*80;
-    // else
-    //     lastRemainingDays(50) = daysStayed
+    var totalHotelCost = firstTenDays+secondTenDays+lastRemainingDays;
+    return totalHotelCost;
 }
-console.log(hotelCost(30));
 
-
+//problem4
 function megaFriend(nameStrArray){
-    var maxLength=-1,maxLengthPosition;
+    var maxLength=-1,maxLengthPosition=-1;
     for(var i=0;i<nameStrArray.length;i++){
         if(nameStrArray[i].length>maxLength){
             maxLength=nameStrArray[i].length;
@@ -65,4 +53,8 @@ function megaFriend(nameStrArray){
     }
     return nameStrArray[maxLengthPosition];
 }
-console.log(megaFriend(["akif", "as", "as", "akif", "asaduzzaman"]));
+
+console.log(kilometerToMeter("-45"));
+console.log(budgetCalculator(45,45,45));
+console.log(hotelCost(-100));
+console.log(megaFriend(["Akif Mahdi", "12345678910111213", "as", "akif", "asad"]));

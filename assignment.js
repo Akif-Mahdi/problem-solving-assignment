@@ -11,7 +11,7 @@ function kilometerToMeter(inputKilometer){
 
 //problem2
 function budgetCalculator(numberOfWatches,numberOfPhones,numberOfLaptops){
-    if(numberOfWatches>0 || numberOfPhones>0 || numberOfLaptops>0){
+    if(numberOfWatches>=0 && numberOfPhones>=0 && numberOfLaptops>=0){
         var watchCost=50*numberOfWatches;
         var phoneCost=100*numberOfPhones;
         var laptopCost=500*numberOfLaptops;
@@ -54,7 +54,3 @@ function megaFriend(nameStrArray){
     return nameStrArray[maxLengthPosition];
 }
 
-console.log(kilometerToMeter("-45"));
-console.log(budgetCalculator(45,45,45));
-console.log(hotelCost(-100));
-console.log(megaFriend(["Akif Mahdi", "12345678910111213", "as", "akif", "asad"]));
